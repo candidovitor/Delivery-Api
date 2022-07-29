@@ -1,10 +1,9 @@
 from flask import Flask
 
-from delivery.ext import admin, auth, cli, config, db, hooks, site, toolbar
-
+#from delivery.ext import admin, auth, cli, config, db, hooks, site, toolbar
+from ext import admin, auth, cli, config, db, hooks, site, toolbar
 
 def create_app():
-
     app = Flask(__name__)
     config.init_app(app)
     db.init_app(app)
@@ -15,3 +14,7 @@ def create_app():
     site.init_app(app)
     hooks.init_app(app)
     return app
+
+if __name__ == '__main__':
+    app = creat_app()
+    app.run(debug=True)
